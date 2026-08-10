@@ -31,7 +31,6 @@ time, mark, audio, video {
     vertical-align: baseline;
 }
 
-/* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
@@ -64,6 +63,7 @@ table {
 
 
 /* ROOT VARIABLES */
+
 :root {
     --blue: #007BFF;
     --red: #FF4500;
@@ -101,6 +101,144 @@ a {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
+}
+
+
+/* HEADER / NAVIGATION */
+
+header {
+    background-color: var(--black);
+    color: var(--white);
+    position: relative;
+    z-index: 10;
+}
+
+.nav-container {
+    min-height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--white);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+#menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.menu-icon span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: var(--white);
+    transition: transform 0.3s ease;
+}
+
+nav {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: var(--black);
+}
+
+nav ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+nav a {
+    display: block;
+    color: var(--white);
+    padding: 1rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease,
+                color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: var(--blue);
+    color: var(--white);
+}
+
+#menu-toggle:checked ~ nav {
+    display: block;
+}
+
+
+/* HERO */
+
+.hero {
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.75)
+        ),
+        url("images/vanguard-hero.jpg") no-repeat center center / cover;
+
+    height: 80vh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding: 1rem;
+    overflow: hidden;
+}
+
+.hero-content {
+    color: var(--white);
+    position: relative;
+}
+
+.hero-content::before {
+    content: "";
+    display: block;
+    width: 3.75rem;
+    height: 3.75rem;
+    margin: 0 auto 1rem;
+    background: url("images/vanguard-logo.svg") no-repeat center / contain;
+}
+
+.hero h1 {
+    font-size: 2.3rem;
+    line-height: 1.2;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    max-width: 650px;
+    margin: 0 auto 1.5rem;
+    font-size: 1rem;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--blue);
+    color: var(--white);
+    padding: 0.85rem 1.5rem;
+    font-weight: 600;
+    border-radius: 5px;
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: var(--red);
+    transform: translateY(-3px);
 }
 
 
@@ -155,8 +293,8 @@ a {
 
 
 /* MEDIA QUERY (MEDIUM) */
-/* Added in a later step */
+/* Added later */
 
 
 /* MEDIA QUERY (LARGE) */
-/* Added in a later step */
+/* Added later */
