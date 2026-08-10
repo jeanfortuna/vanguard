@@ -526,8 +526,70 @@ footer a:hover {
 
 
 /* MEDIA QUERY (MEDIUM) */
-/* Added next */
+
+@media (min-width: 800px) {
+
+    .menu-icon {
+        display: none;
+    }
+
+    nav {
+        display: block;
+        position: static;
+        width: auto;
+        background-color: transparent;
+    }
+
+    nav ul {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    nav a {
+        padding: 0.75rem 1rem;
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .results-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .results-table {
+        width: 50%;
+    }
+
+    .chart-container {
+        width: 50%;
+    }
+
+    form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .full-width {
+        grid-column: 1 / -1;
+    }
+
+    form button {
+        grid-column: 1 / -1;
+        justify-self: center;
+        min-width: 180px;
+    }
+}
 
 
 /* MEDIA QUERY (LARGE) */
-/* Added later */
+/* 1024px breakpoint added next */
