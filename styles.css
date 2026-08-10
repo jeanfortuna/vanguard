@@ -40,11 +40,13 @@ body {
     line-height: 1;
 }
 
-ol, ul {
+ol,
+ul {
     list-style: none;
 }
 
-blockquote, q {
+blockquote,
+q {
     quotes: none;
 }
 
@@ -129,6 +131,7 @@ header {
     color: var(--white);
     position: relative;
     z-index: 10;
+    border-bottom: 3px solid var(--blue);
 }
 
 .nav-container {
@@ -139,9 +142,20 @@ header {
 }
 
 .logo {
-    color: var(--white);
+    color: var(--blue);
     font-size: 1.4rem;
     font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo::before {
+    content: "";
+    display: block;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: url("images/vanguard-logo.svg") no-repeat center / contain;
 }
 
 #menu-toggle {
@@ -159,7 +173,7 @@ header {
     display: block;
     width: 30px;
     height: 3px;
-    background-color: var(--white);
+    background-color: var(--blue);
     transition: transform 0.3s ease;
 }
 
@@ -180,17 +194,18 @@ nav ul {
 
 nav a {
     display: block;
-    color: var(--white);
+    color: var(--blue);
     padding: 1rem;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
     transition:
-        background-color 0.3s ease,
-        color 0.3s ease;
+        color 0.3s ease,
+        transform 0.3s ease;
 }
 
 nav a:hover {
-    background-color: var(--blue);
     color: var(--white);
+    transform: translateY(-2px);
 }
 
 #menu-toggle:checked ~ nav {
@@ -203,31 +218,30 @@ nav a:hover {
 .hero {
     background:
         linear-gradient(
-            rgba(0, 0, 0, 0.75),
-            rgba(0, 0, 0, 0.75)
+            rgba(0, 0, 0, 0.35),
+            rgba(0, 0, 0, 0.35)
         ),
         url("images/vanguard-hero.jpg") no-repeat center center / cover;
 
-    height: 80vh;
+    min-height: 600px;
+    height: auto;
     display: grid;
     place-items: center;
     text-align: center;
-    padding: 1rem;
+    padding: 0;
     overflow: hidden;
 }
 
 .hero-content {
+    width: 65%;
+    max-width: 900px;
     color: var(--white);
-    position: relative;
+    background-color: rgba(0, 0, 0, 0.75);
+    padding: 2rem;
 }
 
 .hero-content::before {
-    content: "";
-    display: block;
-    width: 3.75rem;
-    height: 3.75rem;
-    margin: 0 auto 1rem;
-    background: url("images/vanguard-logo.svg") no-repeat center / contain;
+    content: none;
 }
 
 .hero h1 {
@@ -238,7 +252,7 @@ nav a:hover {
 }
 
 .hero p {
-    max-width: 650px;
+    max-width: 750px;
     margin: 0 auto 1.5rem;
     font-size: 1rem;
 }
@@ -265,37 +279,50 @@ nav a:hover {
 
 #expertise {
     background-color: var(--white);
-    text-align: center;
+    padding: 3rem 0 1.5rem;
+}
+
+#expertise .container {
+    text-align: left;
+}
+
+#expertise h2 {
+    color: var(--charcoal);
+    margin-bottom: 1rem;
 }
 
 #expertise p {
-    max-width: 800px;
-    margin: 0 auto;
+    color: var(--charcoal);
+    margin: 0;
+    max-width: none;
 }
 
 
 /* SERVICES */
 
 #services {
-    background-color: #ffffff;
+    background-color: var(--white);
+    padding: 1.5rem 0 4rem;
 }
 
 #services h2 {
-    text-align: center;
+    text-align: left;
     margin-bottom: 2rem;
+    color: var(--charcoal);
 }
 
 .services-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .services-grid article {
-    background-color: var(--white);
+    background-color: var(--blue);
+    color: var(--white);
     padding: 1.5rem;
-    border-radius: 8px;
-    border: 1px solid #cccccc;
+    border-radius: 6px;
+    border: none;
     transition:
         transform 0.3s ease,
         box-shadow 0.3s ease;
@@ -303,11 +330,16 @@ nav a:hover {
 
 .services-grid article:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .services-grid h3 {
-    color: var(--blue);
+    color: var(--white);
+    margin-bottom: 1rem;
+}
+
+.services-grid p {
+    color: var(--white);
 }
 
 
@@ -398,6 +430,7 @@ tbody tr:nth-child(even) {
     position: relative;
     transition: height 0.5s ease;
     height: 0;
+    animation: stepUp 1s ease-in-out forwards;
 }
 
 .bar::after {
@@ -419,10 +452,6 @@ tbody tr:nth-child(even) {
     100% {
         height: var(--height);
     }
-}
-
-.bar {
-    animation: stepUp 1s ease-in-out forwards;
 }
 
 
@@ -550,11 +579,11 @@ footer a:hover {
     }
 
     .hero h1 {
-        font-size: 3.5rem;
+        font-size: 2.3rem;
     }
 
     .hero p {
-        font-size: 1.1rem;
+        font-size: 1rem;
     }
 
     .services-grid {
@@ -595,39 +624,26 @@ footer a:hover {
 
 @media (min-width: 1024px) {
 
-    section {
-        padding: 5rem 0;
-    }
-
-    .hero {
-        height: 85vh;
-    }
-
     .hero h1 {
-        font-size: 4.5rem;
+        font-size: 2.3rem;
     }
 
     .hero p {
-        font-size: 1.2rem;
+        font-size: 1rem;
         max-width: 750px;
     }
 
-    .hero-content::before {
-        width: 5rem;
-        height: 5rem;
-    }
-
     h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .services-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+        gap: 1rem;
     }
 
     .services-grid article {
-        padding: 2rem;
+        padding: 1.5rem;
     }
 
     .results-container {
