@@ -85,7 +85,7 @@ html {
 
 body {
     font-family: var(--font);
-    background-color: var(--white);
+    background-color: var(--black);
     color: var(--charcoal);
     line-height: 1.6;
 }
@@ -294,7 +294,6 @@ nav a:hover {
 #expertise p {
     color: var(--charcoal);
     margin: 0;
-    max-width: none;
 }
 
 
@@ -346,7 +345,7 @@ nav a:hover {
 /* RESULTS */
 
 #results {
-    background-color: var(--black);
+    background-color: var(--blue);
     color: var(--white);
 }
 
@@ -377,9 +376,12 @@ nav a:hover {
     margin-bottom: 1rem;
 }
 
+
+/* TABLE */
+
 table {
     width: 100%;
-    background-color: var(--charcoal);
+    background-color: var(--black);
 }
 
 th,
@@ -390,13 +392,17 @@ td {
 }
 
 th {
-    background-color: var(--blue);
+    background-color: var(--black);
     color: var(--white);
     font-weight: 700;
 }
 
+tbody tr:nth-child(odd) {
+    background-color: var(--black);
+}
+
 tbody tr:nth-child(even) {
-    background-color: #444444;
+    background-color: var(--charcoal);
 }
 
 
@@ -425,7 +431,7 @@ tbody tr:nth-child(even) {
     width: 100%;
     max-width: 50px;
     justify-self: center;
-    background: var(--blue);
+    background: var(--charcoal);
     border-radius: 10px 10px 0 0;
     position: relative;
     transition: height 0.5s ease;
@@ -458,24 +464,28 @@ tbody tr:nth-child(even) {
 /* CONTACT */
 
 #contact {
-    background-color: var(--white);
+    background-color: var(--black);
+    color: var(--white);
+    padding: 2rem 0 1rem;
 }
 
 #contact h2,
 #contact > .container > p {
-    text-align: center;
+    text-align: left;
+}
+
+#contact h2 {
+    margin-bottom: 0.75rem;
 }
 
 #contact > .container > p {
-    max-width: 700px;
-    margin: 0 auto 2rem;
+    margin-bottom: 1rem;
 }
 
 form {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.25rem;
-    max-width: 800px;
+    gap: 1rem;
     margin: 0 auto;
 }
 
@@ -485,16 +495,18 @@ form {
 }
 
 label {
+    color: var(--white);
     font-weight: 600;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.25rem;
 }
 
 input,
 textarea {
     width: 100%;
-    padding: 0.85rem;
-    border: 1px solid #aaaaaa;
-    border-radius: 5px;
+    padding: 0.75rem;
+    background-color: var(--white);
+    border: 2px solid var(--blue);
+    border-radius: 0;
     font-family: var(--font);
     font-size: 1rem;
     box-sizing: border-box;
@@ -502,11 +514,12 @@ textarea {
 
 textarea {
     resize: vertical;
+    min-height: 120px;
 }
 
 input:focus,
 textarea:focus {
-    outline: 2px solid var(--blue);
+    outline: none;
     border-color: var(--blue);
 }
 
@@ -534,23 +547,23 @@ button:hover {
 /* FOOTER */
 
 footer {
-    background-color: var(--charcoal);
+    background-color: var(--black);
     color: var(--white);
     padding: 2rem 0;
     text-align: center;
 }
 
 footer p {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
 footer a {
-    color: var(--white);
+    color: var(--blue);
     font-weight: 600;
 }
 
 footer a:hover {
-    color: var(--blue);
+    color: var(--white);
 }
 
 
@@ -609,13 +622,13 @@ footer a:hover {
     }
 
     .full-width {
-        grid-column: 1 / -1;
+        grid-column: 1;
     }
 
     form button {
-        grid-column: 1 / -1;
-        justify-self: center;
-        min-width: 180px;
+        grid-column: 2;
+        align-self: start;
+        width: 100%;
     }
 }
 
@@ -664,18 +677,10 @@ footer a:hover {
     }
 
     form {
-        max-width: 900px;
+        max-width: none;
     }
 
     footer .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        flex-wrap: wrap;
-    }
-
-    footer p {
-        margin-bottom: 0;
+        display: block;
     }
 }
