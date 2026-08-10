@@ -592,4 +592,74 @@ footer a:hover {
 
 
 /* MEDIA QUERY (LARGE) */
-/* 1024px breakpoint added next */
+
+@media (min-width: 1024px) {
+
+    section {
+        padding: 5rem 0;
+    }
+
+    .hero {
+        height: 85vh;
+    }
+
+    .hero h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        max-width: 750px;
+    }
+
+    .hero-content::before {
+        width: 5rem;
+        height: 5rem;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .services-grid article {
+        padding: 2rem;
+    }
+
+    .results-container {
+        gap: 4rem;
+        align-items: center;
+    }
+
+    .results-table {
+        width: 48%;
+    }
+
+    .chart-container {
+        width: 48%;
+    }
+
+    #bar-chart {
+        height: 350px;
+    }
+
+    form {
+        max-width: 900px;
+    }
+
+    footer .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+
+    footer p {
+        margin-bottom: 0;
+    }
+}
